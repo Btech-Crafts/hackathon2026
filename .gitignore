@@ -1,0 +1,33 @@
+__pycache__/
+.venv/
+.pytest_cache/
+*.pyc
+threat_intel.db
+
+# Logs
+uvicorn.log
+uvicorn.err.log
+*.log
+
+# Android build outputs / caches
+android-app/.gradle/
+android-app/app/build/
+android-app/build/
+*/build/
+.gradle/
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# Signing secrets - NEVER push (contains plaintext passwords / private keys)
+android-app/local.properties
+android-app/keystore/
+*.jks
+*.keystore
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

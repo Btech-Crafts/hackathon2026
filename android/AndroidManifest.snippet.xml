@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Merge the <application> children below into your app manifest.
+  Required permissions: SYSTEM_ALERT_WINDOW, INTERNET,
+  FOREGROUND_SERVICE (+ FOREGROUND_SERVICE_SPECIAL_USE on API 34+), CAMERA + READ_MEDIA_IMAGES.
+  NOTE: passive UPI-app inspection via AccessibilityService was removed;
+  the app now verifies only manually entered UPI IDs and scanned QRs.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+
+    <application
+        android:label="Payment Guard"
+        android:allowBackup="false">
+
+        <!-- Floating HIGH/CRITICAL risk overlay -->
+        <service
+            android:name=".OverlayAlertService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Safety overlay warning the user about a live payment scam risk." />
+        </service>
+
+        <!-- QR scanner (CameraX + gallery picker) -->
+        <activity
+            android:name=".QRScannerActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+
+    </application>
+</manifest>

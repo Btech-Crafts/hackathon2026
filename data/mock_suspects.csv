@@ -1,0 +1,10 @@
+kind,value,source
+vpa,refund-officer@ybl,i4c-mock
+vpa,customs-clearance-fee@upi,i4c-mock
+vpa,kyc-support01@axl,i4c-mock
+vpa,army-canteen-offer@ibl,i4c-mock
+vpa,PhonePeCashback2024@ybl,i4c-mock
+vpa,rbi-refund-dept@paytm,i4c-mock
+phone,+91-9876543210,i4c-mock
+phone,9123456780,lea-mock
+handle,fake-refund-desk,i4c-mock
